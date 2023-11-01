@@ -54,7 +54,7 @@ class Carpeta(Component):
         results = []
         for child in self._children:
             results.append(child.operation())
-        return f"{self._nombre} ({'+'.join(results)})"
+        return f"{self._nombre} :({'+'.join(results)})"
 
 def cliente(component:Carpeta):
     print(f"result:{component.operation()}",end="")
@@ -63,6 +63,7 @@ carpeta1=Carpeta("MLS")
 carpeta1.add(Archivo("messi"))
 carpeta1.add(Archivo("sergio busquets"))
 carpeta1.add(Archivo("dani alves"))
+nombre=Archivo("soteldo")
 
 carpeta2=Carpeta("LPF")
 carpeta2.add(Archivo("colo barco"))
@@ -71,4 +72,5 @@ carpeta2.add(Archivo("la bestia merentiel"))
 arbol=Carpeta("general")
 arbol.add(carpeta1)
 arbol.add(carpeta2)
+arbol.add(nombre)
 cliente(arbol)
